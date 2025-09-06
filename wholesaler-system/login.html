@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login - Wholesaler System</title>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #2bd873, #036313);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+      }
+
+      .veggie {
+        position: absolute;
+        opacity: 0.4;
+        pointer-events: none;
+        animation: float 12s ease-in-out infinite;
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-60px) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(360deg);
+        }
+      }
+
+      .main {
+        margin-left: 0px;
+        margin-bottom: 0px;
+        height: 100%;
+        width: 100vw;
+
+        /* padding: 40px; */
+        /* position: relative; */
+        z-index: 10;
+        /* background-color: red; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      form {
+        background: #fff;
+        width: 100%;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        margin-bottom: 30px;
+      }
+
+      form input[type="text"],
+      form input[type="password"],
+      form select {
+        width: 100%;
+        padding: 10px 14px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      h2 {
+        margin-bottom: 25px;
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 1.2px;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      form input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      form input[type="submit"]:hover {
+        background-color: #388e3c;
+      }
+      form label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main" style="height: 80%">
+      <div style="width: 300px">
+        <h2
+          style="
+            color: #ffffff;
+            font-weight: bold;
+            stroke-width: 1px;
+            stroke: #fff;
+            margin: 0;
+            padding-bottom: 10px;
+          "
+        >
+          Admin Login
+        </h2>
+        <form action="php/login.php" method="post" style="height: 100%">
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        const veggies = [
+          "broccoli.png",
+          "cucumber.png",
+          "eggplant.png",
+          "garlic.png",
+          "lettuce.png",
+          "pepper.png",
+          "radish.png",
+          "tomato.png",
+        ];
+
+        const container = document.body;
+        const totalVeggies = 50; 
+
+        for (let i = 0; i < totalVeggies; i++) {
+          const img = document.createElement("img");
+          const randomVeg = veggies[Math.floor(Math.random() * veggies.length)];
+          img.src = "icons/" + randomVeg;
+          img.className = "veggie";
+
+          // Random position
+          img.style.top = Math.random() * 100 + "%";
+          img.style.left = Math.random() * 100 + "%";
+
+          // Random size
+          const size = 20 + Math.random() * 40; // 30px to 70px
+          img.style.width = size + "px";
+
+          // Random animation
+          const duration = 10 + Math.random() * 10;
+          const delay = Math.random() * 5;
+          img.style.animationDuration = `${duration}s`;
+          img.style.animationDelay = `${delay}s`;
+
+          container.appendChild(img);
+        }
+      });
+    </script>
+  </body>
+</html>

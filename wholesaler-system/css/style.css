@@ -1,0 +1,725 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar styling (if not already styled globally) */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: #4caf50;
+  color: #fff;
+  padding: 20px 15px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #388e3c;
+}
+.main {
+  margin-left: 220px;
+  padding: 40px;
+}
+
+/* nav bar toggle */
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.dropdown-toggle {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+  background-color: #388e3c;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.submenu a {
+  font-size: 14px;
+  padding: 6px 10px;
+  background-color: #66bb6a;
+  color: white;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  background-color: #4caf50;
+}
+/* ---------- */
+
+input,
+button {
+  margin: 5px;
+  padding: 8px;
+}
+
+.summary-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-cards .card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 200px;
+  min-width: 220px;
+  text-align: center;
+}
+
+.summary-cards .card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.summary-cards .card p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.summary-cards .card.full {
+  flex-basis: 100%;
+}
+
+.summary-cards .card.full ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.summary-cards .card.full li {
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+  color: #444;
+}
+
+.summary-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-cards .card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 200px;
+  min-width: 220px;
+  text-align: center;
+}
+
+.summary-cards .card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.summary-cards .card p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.summary-cards .card.full {
+  flex-basis: 100%;
+}
+
+.stock-summary-columns {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.stock-summary-columns ul {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+  margin: 0;
+  border-right: 1px solid #ccc; /* vertical line */
+  padding-right: 15px;
+}
+
+.stock-summary-columns ul:last-child {
+  border-right: none; /* remove border from last column */
+}
+
+.stock-summary-columns li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+  margin-right: 15px;
+  color: #444;
+  font-size: 15px;
+}
+
+.veg-name {
+  text-align: left;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.veg-qty {
+  text-align: right;
+  min-width: 70px;
+  font-weight: bold;
+  color: #007bff;
+  /* padding-right: 15px; */
+}
+
+.chart-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.chart-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1; /* Equal width */
+  min-width: 0; /* Prevent overflow */
+  box-sizing: border-box;
+}
+
+.chart-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.chart-card label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* ==== Farmer Page Styles ==== */
+
+.filter-box {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  align-items: center; /* center vertically */
+  margin: -10px 2px;
+}
+
+#searchFarmer {
+  padding: 8px 12px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#searchFarmer:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.4);
+}
+
+#clearButton {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+#clearButton:hover {
+  background-color: #d32f2f;
+}
+
+#suggestions {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 999;
+  display: none;
+  max-height: 150px;
+  overflow-y: auto;
+  border-radius: 0 0 6px 6px;
+}
+
+#suggestions div {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+#suggestions div:hover {
+  background: #f0f0f0;
+}
+
+/* ==== Farmer Table ==== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #4caf50;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td a {
+  color: #f44336;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+#successMessage {
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+  .filter-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #searchFarmer {
+    width: 100%;
+  }
+
+  #clearButton {
+    width: 100%;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    font-size: 14px;
+  }
+}
+/* ==== Vegetable Trends Page ==== */
+
+.main {
+  margin-left: 250px;
+  padding: 20px;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Page Titles */
+.main h2 {
+  /* margin-top: 20px; */
+  margin-bottom: 16px;
+  font-size: 22px;
+  color: #333;
+}
+
+/* ==== Stock Table Search ==== */
+#stockSearchInput {
+  padding: 8px 12px;
+  width: 260px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+#stockSearchInput:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.4);
+}
+
+#clearStockSearch {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-left: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#clearStockSearch:hover {
+  background-color: #d32f2f;
+}
+
+.stock-search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.stock-search-box {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  margin: -10px;
+}
+
+#searchStock {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 300px;
+}
+
+#clearStockSearch {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#clearStockSearch:hover {
+  background-color: #d32f2f;
+}
+
+#stockSearchInput {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 400px;
+  margin-top: 16px;
+}
+
+#clearStockSearch {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#clearStockSearch:hover {
+  background-color: #d32f2f;
+}
+
+/* Chart Containers */
+canvas {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+/* Dropdown Style */
+#vegSelectFilter {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.single-veg-dropdown {
+  margin-bottom: 15px;
+}
+
+.single-veg-dropdown label {
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+#vegSelectFilter {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.veg-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.veg-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.veg-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.veg-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.veg-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ddd;
+  font-size: 14px;
+}
+
+.veg-card li span:first-child {
+  color: #444;
+}
+
+.veg-card li span:last-child {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Responsive layout for charts */
+@media screen and (max-width: 768px) {
+  .main {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ==== Manage Data Page ==== */
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+.main h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.main h2 {
+  font-size: 22px;
+  color: #333;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+/* Forms */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  margin-bottom: 30px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #388e3c;
+}
+
+/* Label styling for stock form */
+form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.success-msg {
+  background-color: #e6f9e6;
+  color: #2e7d32;
+  border-left: 5px solid #4caf50;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.pagination-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pagination-container button {
+  margin: 0 3px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.pagination-container button:hover {
+  background-color: #ddd;
+}
+
+.pagination-container .active-page {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  width: 400px;
+  border-radius: 8px;
+}
+
+.grid-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.grid-two-column form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.grid-two-column form h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container {
+  display: grid !important;
+}
